@@ -56,14 +56,84 @@
 Un champ d'index possède 5 propriétés :</p>
 
 <ul>
-<li>Name : le nom du champ</li>
-<li>Indexed : indique si la valeur du champ doit être indexée, ce qui permettra alors d'effectuer des requêtes dessus. Il arrive que certains champs ne soient pas utilisés dans les recherches mais doivent tout de même être retournés (voir propriété suivante) lors d'une requête de recherche.</li>
-<li>Stored : indique si la valeur du champ doit être stockée telle quelle. Cela permettra de renvoyer la donnée brute lors d'une requête de recherche.</li>
-<li>TermVector : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
-<li>Analyzer : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. Nous ne les couvrirons pas durant ce tutorial. </li>
+<li>
+<strong>Name</strong> : le nom du champ</li>
+<li>
+<strong>Indexed</strong> : indique si la valeur du champ doit être indexée, ce qui permettra alors d'effectuer des requêtes dessus. Il arrive que certains champs ne soient pas utilisés dans les recherches mais doivent tout de même être retournés (voir propriété suivante) lors d'une requête de recherche.</li>
+<li>
+<strong>Stored</strong> : indique si la valeur du champ doit être stockée telle quelle. Cela permettra de renvoyer la donnée brute lors d'une requête de recherche.</li>
+<li>
+<strong>TermVector</strong> : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
+<li>
+<strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. Nous ne les couvrirons pas durant ce tutorial. </li>
 </ul><p>Nous allons créer 4 champs : url, title, section et content.</p>
 
-<h2>
+<p>Créez le champ url :</p>
+
+<ul>
+<li>
+<strong>Name</strong> : url</li>
+<li>
+<strong>Indexed</strong> : yes</li>
+<li>
+<strong>Stored</strong> : yes</li>
+<li>
+<strong>TermVector</strong> : no</li>
+<li>
+<strong>Analyzer</strong> : laisser vide</li>
+</ul><p>Cliquez sur le bouton <code>Add</code>.</p>
+
+<p>Le champ est ajouté en dessous dans la zone <strong>List of existing fields and their settings</strong>.</p>
+
+<p>Créez les 3 autres champs :</p>
+
+<ul>
+<li>title :
+
+<ul>
+<li>
+<strong>Name</strong> : title</li>
+<li>
+<strong>Indexed</strong> : yes</li>
+<li>
+<strong>Stored</strong> : yes</li>
+<li>
+<strong>TermVector</strong> : no</li>
+<li>
+<strong>Analyzer</strong> : laisser vide</li>
+</ul>
+</li>
+<li>section : ce champ servira à stocker la rubrique de chaque article.
+
+<ul>
+<li>
+<strong>Name</strong> : section</li>
+<li>
+<strong>Indexed</strong> : yes</li>
+<li>
+<strong>Stored</strong> : yes</li>
+<li>
+<strong>TermVector</strong> : no</li>
+<li>
+<strong>Analyzer</strong> : laisser vide</li>
+</ul>
+</li>
+<li>content :
+
+<ul>
+<li>
+<strong>Name</strong> : content</li>
+<li>
+<strong>Indexed</strong> : yes</li>
+<li>
+<strong>Stored</strong> : no</li>
+<li>
+<strong>TermVector</strong> : no</li>
+<li>
+<strong>Analyzer</strong> : laisser vide</li>
+</ul>
+</li>
+</ul><h2>
 <a name="rechercher-les-contenus-index%C3%A9s" class="anchor" href="#rechercher-les-contenus-index%C3%A9s"><span class="octicon octicon-link"></span></a>Rechercher les contenus indexés</h2>
 
 <h2>
