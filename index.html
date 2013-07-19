@@ -142,6 +142,8 @@ Un champ de schéma possède 5 propriétés :</p>
 </li>
 </ul><p>Nos 4 champs sont maintenant créés et visibles dans la liste des champs.</p>
 
+<p>Nous devons configuré un champ par défaut et un champ unique. Pour cela sélectionnez <code>title</code> dans la première liste et <code>url</code> dans la seconde.</p>
+
 <h3>
 <a name="configuration-du-crawl" class="anchor" href="#configuration-du-crawl"><span class="octicon octicon-link"></span></a>Configuration du crawl</h3>
 
@@ -215,7 +217,7 @@ content:($$)^4 OR content:("$$")
 
 <p>Nous utilisons également la notation <code>($$)</code> et <code>("$$")</code> : cela permet d'obtenir des documents contenant les mots recherchés soit de manière éclatée soit de manière regroupée.</p>
 
-<hr><p>**/!\ Voir en fonction des analyser ce qu'il faut utiliser exactement au niveau de la recherche **</p>
+<hr><p><strong>/!\ Voir en fonction des analyser ce qu'il faut utiliser exactement au niveau de la recherche</strong></p>
 
 <hr><p>Saisissez la requête dans le champ <code>Pattern query</code> puis cliquez sur le bouton <code>Save</code> se trouvant en haut à droite de la page.</p>
 
@@ -226,11 +228,36 @@ content:($$)^4 OR content:("$$")
 <h2>
 <a name="proposer-une-page-de-recherche-aux-utilisateurs" class="anchor" href="#proposer-une-page-de-recherche-aux-utilisateurs"><span class="octicon octicon-link"></span></a>Proposer une page de recherche aux utilisateurs</h2>
 
+<p>Jusqu'à présent nous avons pu rapidement mettre en place un index de document, un crawler de page web et une manière de rechercher les documents.</p>
+
+<p>Nous allons maintenant voir comment mettre à disposition des utilisateurs de notre site internet ce moteur de recherche.</p>
+
+<p>Cliquez sur l'onglet <code>Renderer</code> puis sur le bouton <code>New renderer...</code>.</p>
+
+<p>Dans le champ <code>Renderer name</code> saisissez <code>default</code> et sélectionner la requête <code>search_articles</code> dans la liste déroulante <code>Request name</code>.
+Cliquer ensuite sur le bouton <code>Create</code>.</p>
+
+<p>Nous avons ainsi créer une page de recherche qui utilisera la requête <code>search_articles</code> configurée au préalable. </p>
+
+<p>Dans la liste des <code>renderer</code> cliquez sur le bouton <code>View</code> sur la ligne du renderer <code>default</code>. </p>
+
+<p>La page obtenue contient un formulaire de recherche directement utilisable par les internautes ! </p>
+
+<p>Vous pouvez retourner dans l'édition du renderer pour définir des CSS personnalisés et modifier les autres paramètres. L'onglet <code>Testing</code> vous fournira le code source de l'iFrame à intégrer sur une page de votre site internet.</p>
+
 <h2>
 <a name="ajout-dune-facette" class="anchor" href="#ajout-dune-facette"><span class="octicon octicon-link"></span></a>Ajout d’une facette</h2>
 
 <h2>
 <a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
+
+<h2>
+<a name="par-quoi-continuer" class="anchor" href="#par-quoi-continuer"><span class="octicon octicon-link"></span></a>Par quoi continuer</h2>
+
+<p>Nous venons de mettre en pratique quelques-unes des très nombreuses fonctionnalités proposées par OpenSearchServer. </p>
+
+<p>Vous pouvez maintenant découvrir le reste de <a href="http://www.open-search-server.com/confluence/display/EN/Home">notre Centre de documentation</a>, qui vous permettra de comprendre les autres paramétrages du moteur.
+Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
     </div>
 
