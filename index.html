@@ -1,37 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Test : " />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Test - tutorial en cours de conception by AlexandreToyer</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Test</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
+      <header>
+        <h1>Test - tutorial en cours de conception</h1>
+        <p></p>
+      </header>
 
-          <h1 id="project_title">Test</h1>
-          <h2 id="project_tagline"></h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         <h1>
+<a name="tutorial-en-cours-d%C3%A9criture" class="anchor" href="#tutorial-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutorial en cours d'écriture</h1>
+
+<p>Ce tutorial est actuelleent en cours de rédaction et n'est pas encore finalisé.</p>
+
+<h1>
 <a name="crawler-un-site-internet-et-obtenir-un-moteur-de-recherche" class="anchor" href="#crawler-un-site-internet-et-obtenir-un-moteur-de-recherche"><span class="octicon octicon-link"></span></a>Crawler un site internet et obtenir un moteur de recherche</h1>
 
 <p>Ce tutorial rapide à réaliser vous permettra de prendre en main certaines fonctionnalités d'OpenSearchServer. Vous apprendez à crawler un site pour construire l'index de recherche, mettre en place une page de recherche, configurer des facettes et activer l'auto-complétion !</p>
@@ -248,28 +261,33 @@ Cliquer ensuite sur le bouton <code>Create</code>.</p>
 <h2>
 <a name="ajout-dune-facette" class="anchor" href="#ajout-dune-facette"><span class="octicon octicon-link"></span></a>Ajout d’une facette</h2>
 
+<p>Nous avons configuré le crawler et le schéma pour qu'à chaque article indexé soit associé une rubrique. Nous allons maintenant voir comment exposer cette rubrique en tant que facette. </p>
+
+<p>Les facettes sont des compteurs thématiques de résultats, qui servent également de filtre de recherche.</p>
+
+<p>Cliquez sur l'onglet <code>Query</code> puis sur le bouton <code>Edit</code> de la requête <code>search_articles</code>.</p>
+
+<p>Cliquez ensuite sur l'onglet <code>Faceted fields</code>, choisissez <code>section</code> dans la liste puis cliquez sur le bouton <code>add facet</code>. Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
+
+<p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et effectuez une recherche : la facette est automatiquement ajoutée !</p>
+
 <h2>
 <a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
 
 <h2>
-<a name="par-quoi-continuer" class="anchor" href="#par-quoi-continuer"><span class="octicon octicon-link"></span></a>Par quoi continuer</h2>
+<a name="que-faire-ensuite-" class="anchor" href="#que-faire-ensuite-"><span class="octicon octicon-link"></span></a>Que faire ensuite ?</h2>
 
 <p>Nous venons de mettre en pratique quelques-unes des très nombreuses fonctionnalités proposées par OpenSearchServer. </p>
 
 <p>Vous pouvez maintenant découvrir le reste de <a href="http://www.open-search-server.com/confluence/display/EN/Home">notre Centre de documentation</a>, qui vous permettra de comprendre les autres paramétrages du moteur.
 Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Test maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
