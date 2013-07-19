@@ -60,7 +60,11 @@
 </li>
 </ul><p>Cliquez sur <code>Create</code>.</p>
 
+<p><a href="Cr%C3%A9ation%20de%20l'index">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_creation.PNG</a></p>
+
 <p>L'index est créé immédiatement. Le contexte global de l'interface change et de nouveaux onglets apparaissent en haut de page.</p>
+
+<p><a href="Onglets%20de%20la%20navigation%20principale">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_tabs.PNG</a></p>
 
 <p>Sélectionnez l'onglet <code>Schema</code>. Le schéma permet de définir quels sont les champs de l'index. 
 Un champ de schéma possède 5 propriétés :</p>
@@ -94,6 +98,8 @@ Un champ de schéma possède 5 propriétés :</p>
 <li>
 <strong>Analyzer</strong> : laisser vide</li>
 </ul><p>Cliquez sur le bouton <code>Add</code>.</p>
+
+<p><a href="Cr%C3%A9ation%20du%20champ%20url">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_create_field_url.PNG</a></p>
 
 <p>Le champ est ajouté en dessous dans la zone <strong>List of existing fields and their settings</strong>.</p>
 
@@ -149,6 +155,8 @@ Un champ de schéma possède 5 propriétés :</p>
 
 <p>Nous devons configuré un champ par défaut et un champ unique. Pour cela sélectionnez <code>title</code> dans la première liste et <code>url</code> dans la seconde.</p>
 
+<p><a href="Configuration%20du%20sch%C3%A9ma">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_schema_default.PNG</a></p>
+
 <h3>
 <a name="configuration-du-crawl" class="anchor" href="#configuration-du-crawl"><span class="octicon octicon-link"></span></a>Configuration du crawl</h3>
 
@@ -160,6 +168,8 @@ Un champ de schéma possède 5 propriétés :</p>
 
 <p>L'onglet sélectionné par défaut, <code>Pattern list</code>, est celui qui nous intéresse ici.</p>
 
+<p><a href="Onglet%20par%20d%C3%A9faut%20du%20crawler%20web">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_crawler.PNG</a></p>
+
 <p>Le site que nous souhaitons crawler est <a href="http://xxxxxxxxxxxxxxxxx">http://xxxxxxxxxxxxxxxxx</a>. Nous pouvons voir que cette URL contient les liens vers toutes les pages d'actualités. Nous pouvons donc indiquer au crawler de commencer son crawl ici et d'indexer toutes les pages se trouvant "sous" cette URL.</p>
 
 <p>Dans le champ de saisie de l'onglet Pattern list indiquez <code>http://xxxxxxxxxxxxx/*</code> puis cliquer sur le bouton Add. L'URL renseigné s'ajoute à la zone du dessous contenant toutes les URL à crawler.</p>
@@ -170,7 +180,9 @@ Un champ de schéma possède 5 propriétés :</p>
 
 <p>Choisissez <code>url</code> dans les deux listes déroulantes puis cliquez sur <code>Add</code>. Le mapping entre les deux champs s'ajoute immédiatement dans la zone du dessous.</p>
 
-<p>Voilà, nous avons configurer le crawler en 2 étapes ! Nous devons maintenant terminer la configuration du schéma avant de lancer le crawl.</p>
+<p><a href="Mapping%20du%20champ%20url">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_crawler_urlmapping.PNG</a></p>
+
+<p>Voilà, nous avons configuré le crawler en 2 étapes ! Nous devons maintenant terminer la configuration du schéma avant de lancer le crawl.</p>
 
 <h3>
 <a name="configuration-finale-du-sch%C3%A9ma" class="anchor" href="#configuration-finale-du-sch%C3%A9ma"><span class="octicon octicon-link"></span></a>Configuration finale du schéma</h3>
@@ -203,6 +215,8 @@ Un champ de schéma possède 5 propriétés :</p>
 <a name="cr%C3%A9ation-de-la-requ%C3%AAte-de-recherche-full-text" class="anchor" href="#cr%C3%A9ation-de-la-requ%C3%AAte-de-recherche-full-text"><span class="octicon octicon-link"></span></a>Création de la requête de recherche full-text</h3>
 
 <p>Cliquez sur l'onglet <code>Query</code>. Dans le champ <code>Query name</code> saisissez <code>search_articles</code> puis cliquez sur le bouton <code>New query...</code></p>
+
+<p><a href="Cr%C3%A9ation%20d'une%20requ%C3%AAte%20de%20recherche">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_query_search.PNG</a></p>
 
 <p>Les <code>query</code> peuvent ensuite être construites avec un formalisme puissant, mais facilement abordable. Il faut en effet indiquer au moteur de recherche dans quel champ la recherche full-text doit s'effectuer et quel poids accorder à chaque champ. </p>
 
@@ -242,6 +256,8 @@ content:($$)^4 OR content:("$$")^4
 <p>Dans le champ <code>Renderer name</code> saisissez <code>default</code> et sélectionner la requête <code>search_articles</code> dans la liste déroulante <code>Request name</code>.
 Cliquer ensuite sur le bouton <code>Create</code>.</p>
 
+<p><a href="Le%20renderer">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_renderer.PNG</a></p>
+
 <p>Nous avons ainsi créer une page de recherche qui utilisera la requête <code>search_articles</code> configurée au préalable. </p>
 
 <p>Dans la liste des <code>renderer</code> cliquez sur le bouton <code>View</code> sur la ligne du renderer <code>default</code>. </p>
@@ -273,6 +289,8 @@ Cliquer ensuite sur le bouton <code>Create</code>.</p>
 <p>Cliquez ensuite sur l'onglet <code>Snippet fields</code>, choisissez <code>title</code> dans la liste puis cliquez sur le bouton <code>add snippet</code>. Dans le champ <code>Tag</code> saisissez par exemple <code>strong</code>. </p>
 
 <p>Répétez l'opération pour le champ <code>content</code>.</p>
+
+<p><a href="Utilisation%20des%20snippets%20dans%20le%20renderer">http://alexandre-toyer.fr/nonSitePerso/oss/tuto_renderer_fields.PNG</a></p>
 
 <p>Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
 
