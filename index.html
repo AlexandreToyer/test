@@ -71,7 +71,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>TermVector</strong> : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
 <li>
 <strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. Cette fonctionnalité ne sera pas abordée durant ce tutorial. </li>
-</ul><hr><p>Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</p>
+</ul><hr><p><strong>/!\ Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</strong></p>
 
 <hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, section (rubrique de l'actualité) et content.</p>
 
@@ -172,15 +172,15 @@ Un champ de schéma possède 5 propriétés :</p>
 
 <p>Retournez dans l'onglet <code>Schema</code> et cliquez sur l'onglet <code>Parser list</code>. Cette page présente les différents <code>parser</code> disponibles. Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. La page d'édition du parser HTML s'affiche. Cliquez sur l'onglet <code>Field mapping</code>.</p>
 
-<hr><p>Voir pour la liste par défaut : supprimer les parsers existant pour en recréer un HTML simple ?</p>
+<hr><p><strong>/!\  Voir pour la liste par défaut : supprimer les parsers existant pour en recréer un HTML simple ?</strong></p>
 
-<hr><p>.......finaliser explication regexp.......</p>
+<p>.......finaliser explication regexp.......</p>
 
 <ul>
 <li>extraction de la rubrique (section) de la page crawlée à partir du fil d’ariane de nos fausses pages avec une regexp</li>
 <li>extraction du title</li>
 <li>extraction du content</li>
-</ul><h3>
+</ul><hr><h3>
 <a name="d%C3%A9marrage-du-crawl" class="anchor" href="#d%C3%A9marrage-du-crawl"><span class="octicon octicon-link"></span></a>Démarrage du crawl</h3>
 
 <p>Il est maintenant temps de démarrer le crawler configuré plus tôt. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici mais les valeurs par défaut sont satisfaisantes pour notre exemple. </p>
@@ -190,7 +190,38 @@ Un champ de schéma possède 5 propriétés :</p>
 <p>Pendant que les pages sont crawlés et les documents ajoutés à l'index nous allons voir comment les recherches peuvent être effectuées dans ces documents.</p>
 
 <h2>
-<a name="rechercher-les-contenus-index%C3%A9s" class="anchor" href="#rechercher-les-contenus-index%C3%A9s"><span class="octicon octicon-link"></span></a>Rechercher les contenus indexés</h2>
+<a name="rechercher-les-contenus-index%C3%A9s-et-personnaliser-la-pertinence-des-r%C3%A9sultats" class="anchor" href="#rechercher-les-contenus-index%C3%A9s-et-personnaliser-la-pertinence-des-r%C3%A9sultats"><span class="octicon octicon-link"></span></a>Rechercher les contenus indexés et personnaliser la pertinence des résultats</h2>
+
+<h3>
+<a name="cr%C3%A9ation-de-la-requ%C3%AAte-de-recherche-full-text" class="anchor" href="#cr%C3%A9ation-de-la-requ%C3%AAte-de-recherche-full-text"><span class="octicon octicon-link"></span></a>Création de la requête de recherche full-text</h3>
+
+<p>Cliquez sur l'onglet <code>Query</code>. Dans le champ <code>Query name</code> saisissez <code>search_articles</code> puis cliquez sur le bouton <code>New query...</code></p>
+
+<p>Les <code>query</code> peuvent ensuite être construites avec un formalisme puissant, mais facilement abordable. Il faut en effet indiquer au moteur de recherche dans quel champ la recherche full-text doit s'effectuer et quel poids accorder à chaque champ. </p>
+
+<p>En effet comme nous l'avons vu au début de ce tutorial certains champs peuvent n'être que stockés mais pas indexés, car nous ne souhaitons pas effectuer de recherche dessus.
+De plus nous pouvons considérer que des documents qui contiendront les mots recherchés dans leur titre ont plus de poids, et donc plus de pertinence, que les documents ne contenant ces mots que dans leur contenu.</p>
+
+<p>Nous pouvons donc utiliser cette requête :</p>
+
+<pre><code>title:($$)^10 OR title:("$$") OR
+section:($$)^7 OR section:("$$") OR
+content:($$)^4 OR content:("$$")
+</code></pre>
+
+<p><code>$$</code> représente ici le ou les mots saisis lors de la recherche.</p>
+
+<p>Nous indiquons au moteur de rechercher d'abord dans le titre avec un poids important, puis ensuite dans la rubrique et enfin dans le contenu de l'article.</p>
+
+<p>Nous utilisons également la notation <code>($$)</code> et <code>("$$")</code> : cela permet d'obtenir des documents contenant les mots recherchés soit de manière éclatée soit de manière regroupée.</p>
+
+<hr><p>**/!\ Voir en fonction des analyser ce qu'il faut utiliser exactement au niveau de la recherche **</p>
+
+<hr><p>Saisissez la requête dans le champ <code>Pattern query</code> puis cliquez sur le bouton <code>Save</code> se trouvant en haut à droite de la page.</p>
+
+<p>Nous pouvons à présent effectuer des recherches sur les documents qui ont été indexés durant le temps de création de la requête.</p>
+
+<p>Cliquez sur le bouton <code>Edit</code> de la requête afin de revenir à sa page d'édition. Dans le champ <code>Enter the query</code> saisissez <code>chômage</code> puis cliquez sur le bouton <code>Search</code>. Le moteur retourne les documents correspondant dans la zone du dessous. </p>
 
 <h2>
 <a name="proposer-une-page-de-recherche-aux-utilisateurs" class="anchor" href="#proposer-une-page-de-recherche-aux-utilisateurs"><span class="octicon octicon-link"></span></a>Proposer une page de recherche aux utilisateurs</h2>
