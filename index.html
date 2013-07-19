@@ -49,6 +49,8 @@
 
 <p>Ce tutorial rapide à réaliser vous permettra de prendre en main certaines fonctionnalités d'OpenSearchServer. Vous apprendez à crawler un site pour construire l'index de recherche, mettre en place une page de recherche, configurer des facettes et activer l'auto-complétion !</p>
 
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_resultat.PNG" alt="Résultat final"></p>
+
 <p>Pour commencer ce tutorial il vous suffit simplement d'<a href="http://www.open-search-server.com/fr/tester-opensearchserver">Installer OpenSearchServer</a>.</p>
 
 <p>Nous imaginerons ici que votre site Internet est un site d'actualités. Nous avons créé pour cela 4 pages fictives :</p>
@@ -220,7 +222,7 @@ Un champ de schéma possède 5 propriétés :</p>
 </ul><hr><h3>
 <a name="d%C3%A9marrage-du-crawl" class="anchor" href="#d%C3%A9marrage-du-crawl"><span class="octicon octicon-link"></span></a>Démarrage du crawl</h3>
 
-<p>Il est maintenant temps de démarrer le crawler configuré plus tôt. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici. Saisissez 1 dans le champ <code>Delay between each successive access, in seconds:</code>, 1 dans le champ <code>Fetch interval between re-fetches:</code> et sélectionnez <code>minutes</code> dans la liste déroulante. </p>
+<p>Il est maintenant temps de démarrer le crawler configuré plus tôt. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici. Saisissez 7 dans le champ <code>Delay between each successive access, in seconds:</code>, 5 dans le champ <code>Fetch interval between re-fetches:</code> et sélectionnez <code>minutes</code> dans la liste déroulante. </p>
 
 <p>Dans le bloc <code>Current status</code> choisissez <code>Run forever</code> dans la liste puis cliquez sur le bouton <code>Not running - click to run</code> afin de lancer le crawl. Ici encore, le process s'actualise immédiatement dans la zone du dessous.</p>
 
@@ -271,8 +273,11 @@ content:($$)^4 OR content:("$$")^4
 
 <p>Cliquez sur l'onglet <code>Renderer</code> puis sur le bouton <code>New renderer...</code>.</p>
 
-<p>Dans le champ <code>Renderer name</code> saisissez <code>default</code> et sélectionner la requête <code>search_articles</code> dans la liste déroulante <code>Request name</code>.
-Cliquer ensuite sur le bouton <code>Create</code>.</p>
+<p>Dans le champ <code>Renderer name</code> saisissez <code>default</code> et sélectionner la requête <code>search_articles</code> dans la liste déroulante <code>Request name</code>.</p>
+
+<p>Cliquez sur l'onglet <code>Fields</code>, choisissez <code>title</code> dans la seconde liste déroulante et <code>url</code> dans la liste <code>URL field</code>. Cliquez sur le bouton <code>+</code> situé en fin de ligne.</p>
+
+<p>Cliquer ensuite sur le bouton <code>Create</code>.</p>
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_renderer.PNG" alt="Le renderer"></p>
 
@@ -282,7 +287,15 @@ Cliquer ensuite sur le bouton <code>Create</code>.</p>
 
 <p>La page obtenue contient un formulaire de recherche directement utilisable par les internautes ! </p>
 
-<p>Vous pouvez retourner dans l'édition du renderer pour définir des CSS personnalisés et modifier les autres paramètres. L'onglet <code>Testing</code> vous fournira le code source de l'iFrame à intégrer sur une page de votre site internet.</p>
+<p>Vous pouvez retourner dans l'édition du renderer pour définir des CSS personnalisés et modifier les autres paramètres. 
+Saisissez par exemple les règles CSS suivantes pour modifier l'afficage de la page de recherche :</p>
+
+<pre><code>.ossfieldrdr1 { margin:10px 0 0 0; padding:10px 0 0 0; border-top:1px solid #ebebeb}
+#oss-facet ul li:first-child{font-weight:bold; padding:3px; background:#efefef; margin:0 0 5px 0; width:140px;}
+.oss-input-div { padding:10px 0 0 0;}
+</code></pre>
+
+<p>L'onglet <code>Testing</code> vous fournira le code source de l'iFrame à intégrer sur une page de votre site internet.</p>
 
 <h2>
 <a name="ajout-dune-facette" class="anchor" href="#ajout-dune-facette"><span class="octicon octicon-link"></span></a>Ajout d’une facette</h2>
