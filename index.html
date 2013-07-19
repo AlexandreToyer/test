@@ -1,44 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Test - tutorial en cours de conception by AlexandreToyer</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Test - tutorial en cours de conception : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Test - tutorial en cours de conception</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Test - tutorial en cours de conception</h1>
-        <p></p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Test - tutorial en cours de conception</h1>
+          <h2 id="project_tagline"></h2>
 
-        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="tutorial-en-cours-d%C3%A9criture" class="anchor" href="#tutorial-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutorial en cours d'écriture</h1>
 
@@ -219,16 +211,16 @@ De plus nous pouvons considérer que des documents qui contiendront les mots rec
 
 <p>Nous pouvons donc utiliser cette requête :</p>
 
-<pre><code>title:($$)^10 OR title:("$$") OR
-section:($$)^7 OR section:("$$") OR
-content:($$)^4 OR content:("$$")
+<pre><code>title:($$)^10 OR title:("$$") OR^10
+section:($$)^7 OR section:("$$") OR^7
+content:($$)^4 OR content:("$$")^4
 </code></pre>
 
 <p><code>$$</code> représente ici le ou les mots saisis lors de la recherche.</p>
 
-<p>Nous indiquons au moteur de rechercher d'abord dans le titre avec un poids important, puis ensuite dans la rubrique et enfin dans le contenu de l'article.</p>
+<p>Nous indiquons au moteur de rechercher d'abord dans le titre avec un poids important, puis ensuite dans la rubrique avec un poids plus faible et enfin dans le contenu de l'article.</p>
 
-<p>Nous utilisons également la notation <code>($$)</code> et <code>("$$")</code> : cela permet d'obtenir des documents contenant les mots recherchés soit de manière éclatée soit de manière regroupée.</p>
+<p>Nous utilisons également la notation <code>($$)</code> et <code>("$$")</code> qui permet d'obtenir des documents contenant les mots recherchés soit de manière éclatée soit de manière regroupée.</p>
 
 <hr><p><strong>/!\ Voir en fonction des analyser ce qu'il faut utiliser exactement au niveau de la recherche</strong></p>
 
@@ -272,6 +264,25 @@ Cliquer ensuite sur le bouton <code>Create</code>.</p>
 <p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et effectuez une recherche : la facette est automatiquement ajoutée !</p>
 
 <h2>
+<a name="ajout-de-snippets" class="anchor" href="#ajout-de-snippets"><span class="octicon octicon-link"></span></a>Ajout de snippets</h2>
+
+<p>Les snippets sont des extraits de résultats contenant le ou les mots recherchés. Nous allons configurer une snippet sur le titre du document et une autre sur le champ content.</p>
+
+<p>Cliquez sur l'onglet <code>Query</code> puis sur le bouton <code>Edit</code> de la requête <code>search_articles</code>.</p>
+
+<p>Cliquez ensuite sur l'onglet <code>Snippet fields</code>, choisissez <code>title</code> dans la liste puis cliquez sur le bouton <code>add snippet</code>. Dans le champ <code>Tag</code> saisissez par exemple <code>strong</code>. </p>
+
+<p>Répétez l'opération pour le champ <code>content</code>.</p>
+
+<p>Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
+
+<p>Nous devons maintenant indiquer au renderer d'utiliser les snippets à la place des simples champs. Cliquez sur l'onglet <code>Renderer</code> puis sur le bouton <code>Edit</code>. Dans l'onglet <code>Fields</code> supprimer le champ <code>title</code> préalablement configuré.
+Choisissez <code>SNIPPET</code> dans la première liste déroulante puis <code>title</code> dans la seconde. Dans <code>URL Field</code> choisissez <code>url</code> puis cliquez sur le bouton <code>+</code> en fin de ligne.
+Répétez l'opération pour la snippet content, sans configurer d'url.</p>
+
+<p>Cliquez sur le bouton <code>save</code> en bas de page et ré-afficher le renderer puis effectuez une recherche. Le ou les mots recherchés sont à présent affichés en gras dans la page de résultat.</p>
+
+<h2>
 <a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
 
 <h2>
@@ -282,12 +293,17 @@ Cliquer ensuite sur le bouton <code>Create</code>.</p>
 <p>Vous pouvez maintenant découvrir le reste de <a href="http://www.open-search-server.com/confluence/display/EN/Home">notre Centre de documentation</a>, qui vous permettra de comprendre les autres paramétrages du moteur.
 Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Test - tutorial en cours de conception maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
     
+
   </body>
 </html>
