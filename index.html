@@ -288,9 +288,10 @@ content:($$)^4 OR content:("$$")^4
 <p>La page obtenue contient un formulaire de recherche directement utilisable par les internautes ! </p>
 
 <p>Vous pouvez retourner dans l'édition du renderer pour définir des CSS personnalisés et modifier les autres paramètres. 
-Saisissez par exemple les règles CSS suivantes pour modifier l'afficage de la page de recherche :</p>
+Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la page de recherche :</p>
 
-<pre><code>.ossfieldrdr1 { margin:10px 0 0 0; padding:10px 0 0 0; border-top:1px solid #ebebeb}
+<pre><code>* { font-family: verdana, arial; font-size:12px;}
+.ossfieldrdr1 { margin:10px 0 0 0; padding:10px 0 0 0; border-top:1px solid #ebebeb}
 #oss-facet ul li:first-child{font-weight:bold; padding:3px; background:#efefef; margin:0 0 5px 0; width:140px;}
 .oss-input-div { padding:10px 0 0 0;}
 </code></pre>
@@ -334,13 +335,58 @@ Répétez l'opération pour la snippet content, sans configurer d'url.</p>
 <h2>
 <a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
 
+<p>OpenSearchServer gère très simplement l'ajout de l'auto-complétion. Pour ajouter cette fonctionnalité nous devons configurer un nouveau champ dans le schéma et compléter le parser HTML pour envoyer des données dans ce champ. OpenSearchServer s'occupe ensuite seul de construire l'index d'auto-complétion et de renvoyer les résultats au fur et à mesure de la frappe.
+Pour l'exemple nous allons faire en sorte que l'auto-complétion fonctionne sur les titres de pages.</p>
+
+<p>Cliquez sur l'onglet <code>Schema</code>. Dans l'onglet <code>Fields</code> ajoutez un nouveau champ :</p>
+
+<ul>
+<li>
+<strong>Name</strong> : autocomplete</li>
+<li>
+<strong>Indexed</strong> : yes</li>
+<li>
+<strong>Stored</strong> : yes</li>
+<li>
+<strong>TermVector</strong> : no</li>
+<li>
+<strong>Analyzer</strong> : AutoCompletionAnalyzer</li>
+</ul><p>Cliquez sur le bouton <code>Add</code>.</p>
+
+<p>Cliquez sur l'onglet <code>Parser list</code> puis éditez le parser <code>HTML parser</code>.  Ajoutez une correspondance entre la valeur <code>title</code> (première liste) et le champ <code>autocomplete</code> (seconde liste). Cliquez sur <code>Add</code> puis sur <code>Save</code>.</p>
+
+<p>Il faut maintenant attendre 1 à 2 minutes pour que le crawler passe à nouveau sur les pages pour ajouter des données dans le nouveau champ auto-complete. Assurez-vous pour cela que le crawler soit encore en train de tourner, autrement relancez-le (onglet <code>Crawler</code> / <code>Web crawler</code> / <code>Crawl process</code>).</p>
+
+<p>Passez ensuite sur l'onglet <code>Schema</code> / <code>Auto-completion</code>. Dans la liste <code>Field source</code> choisissez le champ autocomplete puis cliquez sur le bouton <code>Build</code>. La valeur indiquée en face de <code>Number of terms</code> doit passer de 0 à un nombre plus important. Cliquez sur <code>save</code>.</p>
+
+<p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et commencez à taper un mot, par exemple <code>cho</code>. L'auto-complétion s'est directement ajoutée à la page de recherche !
+Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mises en forme.</p>
+
+<p>Retournez sur l'onglet <code>Renderer</code> puis éditer le renderer. Dans l'onglet <code>CSS Styles</code> ajoutez ces lignes :</p>
+
+<pre><code>.osscmnrdr { font-family: arial,sans-serif; }
+.ossinputrdr { font-size:inherit; }
+.ossbuttonrdr { font-size:inherit; }
+#ossautocomplete { margin: 0;cursor: pointer;padding-left:3px;padding-right:3px; }
+#ossautocompletelist { background-color: #FFFFFF;text-align: left;border-left: 1px solid #D3D3D3;border-bottom: 1px solid #D3D3D3;border-right: 1px solid #D3D3D3; }
+.ossautocomplete_link { color:#222222;background-color: #FFFFFF;padding: 2px 6px 2px 6px; }
+.ossautocomplete_link_over { color:#222222;background-color: #F5F5F5;padding: 2px 6px 2px 6px; }
+.ossnumfound { padding-bottom:10px;padding-top:10px; }
+.oss-paging { text-align: center; }
+.ossfieldrdr1 { font-size:120%; }
+.ossfieldrdr3 { color: #0E774A; }
+</code></pre>
+
+<p>Cliquez ensuite sur le bouton <code>Save</code> en bas de page et ré-actualisez la page de recherche. </p>
+
 <h2>
 <a name="que-faire-ensuite-" class="anchor" href="#que-faire-ensuite-"><span class="octicon octicon-link"></span></a>Que faire ensuite ?</h2>
 
 <p>Nous venons de mettre en pratique quelques-unes des très nombreuses fonctionnalités proposées par OpenSearchServer. </p>
 
-<p>Vous pouvez maintenant découvrir le reste de <a href="http://www.open-search-server.com/confluence/display/EN/Home">notre Centre de documentation</a>, qui vous permettra de comprendre les autres paramétrages du moteur.
-Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
+<p>Vous pouvez maintenant découvrir le reste de <a href="http://www.open-search-server.com/confluence/display/EN/Home">notre Centre de documentation</a>, qui vous permettra de comprendre les autres paramétrages du moteur.</p>
+
+<p>Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
