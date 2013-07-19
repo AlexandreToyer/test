@@ -326,7 +326,7 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 
 <p>Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
 
-<p>Nous devons maintenant indiquer au renderer d'utiliser les snippets à la place des simples champs. Cliquez sur l'onglet <code>Renderer</code> puis sur le bouton <code>Edit</code>. Dans l'onglet <code>Fields</code> supprimer le champ <code>title</code> préalablement configuré.
+<p>Nous devons maintenant indiquer au renderer d'utiliser les snippets à la place du champ <code>title</code> configuré plus tôt. Cliquez sur l'onglet <code>Renderer</code> puis sur le bouton <code>Edit</code>. Dans l'onglet <code>Fields</code> supprimer le champ <code>title</code> préalablement configuré.
 Choisissez <code>SNIPPET</code> dans la première liste déroulante puis <code>title</code> dans la seconde. Dans <code>URL Field</code> choisissez <code>url</code> puis cliquez sur le bouton <code>+</code> en fin de ligne.
 Répétez l'opération pour la snippet content, sans configurer d'url.</p>
 
@@ -394,6 +394,16 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-42590313-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
