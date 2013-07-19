@@ -46,7 +46,7 @@
 <h3>
 <a name="cr%C3%A9ation-et-configuration-initiale-de-lindex" class="anchor" href="#cr%C3%A9ation-et-configuration-initiale-de-lindex"><span class="octicon octicon-link"></span></a>Création et configuration initiale de l'index</h3>
 
-<p>Commençons par créer un <code>index</code>. L'index est le cœur d'OpenSearchServer, c'est autour des index que le reste des fonctionnalités s'organisent.</p>
+<p>Commençons par créer un <code>index</code>. L'index est le cœur d'OpenSearchServer, c'est autour des index que le reste des fonctionnalités s'organisent. L'index permet de stocker et d'indexer tous les <strong>documents</strong> qui lui sont soumis. La plupart du temps un document correspond à une page web, représentée par son URL, mais cela peut aussi être un fichier ou un contenu issu d'une base de données.</p>
 
 <ul>
 <li>Nom de l'index : <code>site</code>
@@ -70,8 +70,10 @@ Un champ de schéma possède 5 propriétés :</p>
 <li>
 <strong>TermVector</strong> : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
 <li>
-<strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. Nous ne les couvrirons pas durant ce tutorial. </li>
-</ul><p>Nous allons créer 4 champs : url, title, section et content.</p>
+<strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. Cette fonctionnalité ne sera pas abordée durant ce tutorial. </li>
+</ul><hr><p>Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</p>
+
+<hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, section (rubrique de l'actualité) et content.</p>
 
 <p>Créez le champ url :</p>
 
@@ -108,7 +110,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>Analyzer</strong> : laisser vide</li>
 </ul>
 </li>
-<li>section : ce champ servira à stocker la rubrique de chaque article.
+<li>section : 
 
 <ul>
 <li>
@@ -142,6 +144,50 @@ Un champ de schéma possède 5 propriétés :</p>
 
 <h3>
 <a name="configuration-du-crawl" class="anchor" href="#configuration-du-crawl"><span class="octicon octicon-link"></span></a>Configuration du crawl</h3>
+
+<p>Nous devons maintenant configurer le crawler web d'OSS afin qu'il parcoure et qu'il indexe les pages désirées.</p>
+
+<p>Rendez-vous dans l'onglet <code>Crawler</code> de l'index site. La section crawler contient deux sous navigation par onglets. Le premier des ces deux niveaux permet de choisir entre la configuration du crawler web, du crawler de base de données et du crawler de système de fichier.</p>
+
+<p>Restons sur l'onglet <code>Web</code>. Le second niveau de navigation permet de naviguer à travers les rubriques du crawler web.</p>
+
+<p>L'onglet sélectionné par défaut, <code>Pattern list</code>, est celui qui nous intéresse ici.</p>
+
+<p>Le site que nous souhaitons crawler est <a href="http://xxxxxxxxxxxxxxxxx">http://xxxxxxxxxxxxxxxxx</a>. Nous pouvons voir que cette URL contient les liens vers toutes les pages d'actualités. Nous pouvons donc indiquer au crawler de commencer son crawl ici et d'indexer toutes les pages se trouvant "sous" cette URL.</p>
+
+<p>Dans le champ de saisie de l'onglet Pattern list indiquez <code>http://xxxxxxxxxxxxx/*</code> puis cliquer sur le bouton Add. L'URL renseigné s'ajoute à la zone du dessous contenant toutes les URL à crawler.</p>
+
+<p>La partie <code>/*</code> indique ici au crawler de parcourir toutes les pages se trouvant sous l'URL principale.</p>
+
+<p>Rendez-vous ensuite dans l'onglet <code>Field mapping</code>. Nous allons ici configurer le crawler pour qu'il place automatiquement l'URL de la page crawlée dans le champ <code>url</code> du schéma. Le crawler peut en effet manipuler directement un certain nombre d'éléments issus de la page web crawlée, comme par exemple son url, les headers de réponses, l'url referer, etc.</p>
+
+<p>Choisissez <code>url</code> dans les deux listes déroulantes puis cliquez sur <code>Add</code>. Le mapping entre les deux champs s'ajoute immédiatement dans la zone du dessous.</p>
+
+<p>Voilà, nous avons configurer le crawler en 2 étapes ! Nous devons maintenant terminer la configuration du schéma avant de lancer le crawl.</p>
+
+<h3>
+<a name="configuration-finale-du-sch%C3%A9ma" class="anchor" href="#configuration-finale-du-sch%C3%A9ma"><span class="octicon octicon-link"></span></a>Configuration finale du schéma</h3>
+
+<p>Nous allons voir rapidement comment extraire du contenu de la page HTML pour le placer automatiquement dans les champs du schéma.</p>
+
+<p>Retournez dans l'onglet <code>Schema</code> et cliquez sur l'onglet <code>Parser list</code>. Cette page présente les différents <code>parser</code> disponibles. Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. La page d'édition du parser HTML s'affiche. Cliquez sur l'onglet <code>Field mapping</code>.</p>
+
+<hr><p>Voir pour la liste par défaut : supprimer les parsers existant pour en recréer un HTML simple ?</p>
+
+<hr><p>.......finaliser explication regexp.......</p>
+
+<ul>
+<li>extraction de la rubrique (section) de la page crawlée à partir du fil d’ariane de nos fausses pages avec une regexp</li>
+<li>extraction du title</li>
+<li>extraction du content</li>
+</ul><h3>
+<a name="d%C3%A9marrage-du-crawl" class="anchor" href="#d%C3%A9marrage-du-crawl"><span class="octicon octicon-link"></span></a>Démarrage du crawl</h3>
+
+<p>Il est maintenant temps de démarrer le crawler configuré plus tôt. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici mais les valeurs par défaut sont satisfaisantes pour notre exemple. </p>
+
+<p>Cliquez sur le bouton <code>Not running - click to run</code> afin de lancer le crawl. Ici encore, le process s'actualise immédiatement dans la zone du dessous.</p>
+
+<p>Pendant que les pages sont crawlés et les documents ajoutés à l'index nous allons voir comment les recherches peuvent être effectuées dans ces documents.</p>
 
 <h2>
 <a name="rechercher-les-contenus-index%C3%A9s" class="anchor" href="#rechercher-les-contenus-index%C3%A9s"><span class="octicon octicon-link"></span></a>Rechercher les contenus indexés</h2>
