@@ -288,6 +288,10 @@ Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. L
 
 <p>Pendant que les pages sont crawlés et les documents ajoutés à l'index nous allons voir comment les recherches peuvent être effectuées dans ces documents.</p>
 
+<blockquote>
+<p>L'onglet <code>Manual crawl</code> vous permet d'observer immédiatement le comportement du crawler pour une URL précise : statut du crawl, champs parsés, etc.</p>
+</blockquote>
+
 <h2>
 <a name="rechercher-les-contenus-index%C3%A9s-et-personnaliser-la-pertinence-des-r%C3%A9sultats" class="anchor" href="#rechercher-les-contenus-index%C3%A9s-et-personnaliser-la-pertinence-des-r%C3%A9sultats"><span class="octicon octicon-link"></span></a>Rechercher les contenus indexés et personnaliser la pertinence des résultats</h2>
 
@@ -321,6 +325,10 @@ content:($$)^4 OR content:("$$")^4
 <p>Nous pouvons à présent effectuer des recherches sur les documents qui ont été indexés durant le temps de création de la requête.</p>
 
 <p>Cliquez sur le bouton <code>Edit</code> de la requête afin de revenir à sa page d'édition. Dans le champ <code>Enter the query</code> saisissez <code>chômage</code> puis cliquez sur le bouton <code>Search</code>. Le moteur retourne les documents correspondant dans la zone du dessous. </p>
+
+<blockquote>
+<p>Vous pouvez laisser le champ <code>Enter the query</code> vide ou saisir le mot clé <code>*:*</code> pour obtenir tous les documents.</p>
+</blockquote>
 
 <h2>
 <a name="proposer-une-page-de-recherche-aux-utilisateurs" class="anchor" href="#proposer-une-page-de-recherche-aux-utilisateurs"><span class="octicon octicon-link"></span></a>Proposer une page de recherche aux utilisateurs</h2>
@@ -369,6 +377,10 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 
 <p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et effectuez une recherche : la facette est automatiquement ajoutée !</p>
 
+<blockquote>
+<p>Comme vous avez dû vous en apercevoir depuis le début du tutoriel OpenSearchServer prend en compte <em>à chaud</em> tous les changements de configuration ! Aucun redémarrage de service n'est nécessaire.</p>
+</blockquote>
+
 <h2>
 <a name="ajout-de-snippets" class="anchor" href="#ajout-de-snippets"><span class="octicon octicon-link"></span></a>Ajout de snippets</h2>
 
@@ -416,6 +428,10 @@ Pour l'exemple nous allons faire en sorte que l'auto-complétion fonctionne sur 
 <p>Il faut maintenant attendre 1 à 2 minutes pour que le crawler passe à nouveau sur les pages pour ajouter des données dans le nouveau champ auto-complete. Assurez-vous pour cela que le crawler soit encore en train de tourner, autrement relancez-le (onglet <code>Crawler</code> / <code>Web crawler</code> / <code>Crawl process</code>).</p>
 
 <p>Passez ensuite sur l'onglet <code>Schema</code> / <code>Auto-completion</code>. Dans la liste <code>Field source</code> choisissez le champ autocomplete puis cliquez sur le bouton <code>Build</code>. La valeur indiquée en face de <code>Number of terms</code> doit passer de 0 à un nombre plus important. Cliquez sur <code>save</code>.</p>
+
+<blockquote>
+<p>Le processus de reconstruction de l'index d'auto-complétion peut facilement être exécuté de manière régulière via la création d'un <code>job</code> dans le puissant gestionnaire de tâche d'OpenSearchServer (onglet <code>Scheduler</code>).</p>
+</blockquote>
 
 <p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et commencez à taper un mot, par exemple <code>cho</code>. L'auto-complétion s'est directement ajoutée à la page de recherche !
 Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mises en forme.</p>
