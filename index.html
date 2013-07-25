@@ -1,36 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Test - tutoriel en cours de conception : " />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Test - tutoriel en cours de conception by AlexandreToyer</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Test - tutoriel en cours de conception</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
+      <header>
+        <h1>Test - tutoriel en cours de conception</h1>
+        <p></p>
+      </header>
 
-          <h1 id="project_title">Test - tutoriel en cours de conception</h1>
-          <h2 id="project_tagline"></h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         <h1>
 <a name="tutoriel-en-cours-d%C3%A9criture" class="anchor" href="#tutoriel-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutoriel en cours d'écriture</h1>
 
@@ -64,7 +72,7 @@
 
 <ul>
 <li><a href="http://www.open-search-server.com/fr/site-de-test-crawler-le-chomage-est-en-baisse/">http://www.open-search-server.com/fr/site-de-test-crawler-le-chomage-est-en-baisse/</a></li>
-<li><a href="http://www.open-search-server.com/fr/site-de-test-crawler-la-coupe-du-monde-2040/">http://www.open-search-server.com/fr/site-de-test-crawler-la-coupe-du-monde-2040/</a></li>
+<li><a href="http://www.open-search-server.com/fr/site-de-test-crawler-la-coupe-du-monde-2040/">http://www.open-search-server.com/fr/site-de-test-crawler-la-coupe-du-monde-2040</a></li>
 <li><a href="http://www.open-search-server.com/fr/site-de-test-crawler-la-ceremonie-des-oscars/">http://www.open-search-server.com/fr/site-de-test-crawler-la-ceremonie-des-oscars/</a></li>
 </ul>
 </li>
@@ -105,9 +113,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>TermVector</strong> : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
 <li>
 <strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. </li>
-</ul><hr><p><strong>/!\ Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</strong></p>
-
-<hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, category et content.</p>
+</ul><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, category et content.</p>
 
 <p>Créez le champ url :</p>
 
@@ -141,9 +147,9 @@ Un champ de schéma possède 5 propriétés :</p>
 <li>
 <strong>Stored</strong> : yes</li>
 <li>
-<strong>TermVector</strong> : no</li>
+<strong>TermVector</strong> : positions_offset</li>
 <li>
-<strong>Analyzer</strong> : laisser vide</li>
+<strong>Analyzer</strong> : StandardAnalyzer</li>
 </ul>
 </li>
 <li>category : 
@@ -154,7 +160,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <li>
 <strong>Indexed</strong> : yes</li>
 <li>
-<strong>Stored</strong> : yes</li>
+<strong>Stored</strong> : no</li>
 <li>
 <strong>TermVector</strong> : no</li>
 <li>
@@ -169,18 +175,74 @@ Un champ de schéma possède 5 propriétés :</p>
 <li>
 <strong>Indexed</strong> : yes</li>
 <li>
-<strong>Stored</strong> : no</li>
+<strong>Stored</strong> : yes</li>
 <li>
-<strong>TermVector</strong> : no</li>
+<strong>TermVector</strong> : positions_offset</li>
 <li>
-<strong>Analyzer</strong> : laisser vide</li>
+<strong>Analyzer</strong> : StandardAnalyzer</li>
 </ul>
 </li>
 </ul><p>Nos 4 champs sont maintenant créés et visibles dans la liste des champs.</p>
 
-<p>Nous devons configuré un champ par défaut et un champ unique. Pour cela sélectionnez <code>title</code> dans la première liste et <code>url</code> dans la seconde.</p>
+<p>Nous devons configuré un champ par défaut et un champ unique. Pour cela sélectionnez <code>content</code> dans la première liste et <code>url</code> dans la seconde.</p>
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_schema_default.PNG" alt="Configuration du schéma"></p>
+
+<h4>
+<a name="configuration-du-parser-html" class="anchor" href="#configuration-du-parser-html"><span class="octicon octicon-link"></span></a>Configuration du parser HTML</h4>
+
+<p>Il nous faut maintenant expliquer au moteur comment extraire certaines informations des pages crawlées afin de les ranger des les champs du schéma.</p>
+
+<p>Toujours au sein de l'onglet <code>Schema</code> cliquez sur l'onglet <code>Parser list</code>. Cette page présente les différents <code>parser</code> disponibles. Beaucoup de parser sont créés par défaut. Cliquez sur le bouton <code>Delete</code> pour tous les parsers excepté pour le <code>HTML parser</code>.
+Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. La page d'édition du parser HTML s'affiche. Cliquez sur l'onglet <code>Field mapping</code>. Ici encore plusieurs correspondances sont pré-configurées. Dans le cadre du tutorial nous allons toutes les supprimer pour en recréer 3. Cliquez sur la petite croix rouge présente en fin de chaque ligne.</p>
+
+<p>Nous allons faire en sorte que le moteur repère dans le HTML source de chaque page le titre, la rubrique et le contenu qui nous intéresse afin d'indexer ces informations proprement. Pour cela nous devons lui indiquer à partir de quel champ source travailler, dans quel champ de l'index écrire les données et via quelle expression régulière extraire ces données.</p>
+
+<p>Configurez 3 <code>mapping</code>:</p>
+
+<ul>
+<li>Premier mapping : nous extrayons le titre à partir du <code>h1</code> de la page
+
+<ul>
+<li>première liste : sélectionnez <code>htmlSource</code>
+</li>
+<li>seconde liste : sélectionnez <code>title</code>
+</li>
+<li>champ <code>captured by (reg.exp.)</code> : saisissez cette expression régulière : <code>&lt;h1 class="post-title"&gt;(.*?)</code>
+</li>
+<li>cliquez sur le bouton <code>Add</code>
+</li>
+</ul>
+</li>
+<li>Second mapping : nous extrayons la rubrique à partir d'un élément du fil d'ariane 
+
+<ul>
+<li>première liste : <code>htmlSource</code>
+</li>
+<li>seconde liste : <code>category</code>
+</li>
+<li>regexp : <code>(?s)&lt;a[^&lt;]*class="rubrique"[^&lt;]*&gt;(.*?)&lt;/a&gt;</code>
+</li>
+<li>cliquez sur le bouton <code>Add</code>
+</li>
+</ul>
+</li>
+<li>Troisième mapping : nous extrayons le contenu principal de l'article 
+
+<ul>
+<li>première liste : <code>htmlSource</code>
+</li>
+<li>seconde liste : <code>content</code>
+</li>
+<li>regexp : <code>(?s)&lt;div class="post-entry"&gt;.*&lt;p&gt;&amp;nbsp;&lt;/p&gt;[^&lt;]*&lt;p&gt;(.*?)&lt;/div&gt;</code>
+</li>
+<li>cliquez sur le bouton <code>Add</code>
+</li>
+</ul>
+</li>
+</ul><p>Cliquez maintenant sur le bouton <code>Save</code> en bas de page.</p>
+
+<p>Voilà, le parser HTML est configuré ! Dorénavant chaque page crawlée sera traitée par ce parser avant d'être indexée. </p>
 
 <h3>
 <a name="configuration-du-crawl" class="anchor" href="#configuration-du-crawl"><span class="octicon octicon-link"></span></a>Configuration du crawl</h3>
@@ -210,24 +272,9 @@ Un champ de schéma possède 5 propriétés :</p>
 <p>Voilà, nous avons configuré le crawler en 2 étapes ! Nous devons maintenant terminer la configuration du schéma avant de lancer le crawl.</p>
 
 <h3>
-<a name="configuration-finale-du-sch%C3%A9ma" class="anchor" href="#configuration-finale-du-sch%C3%A9ma"><span class="octicon octicon-link"></span></a>Configuration finale du schéma</h3>
-
-<p>Nous allons voir rapidement comment extraire du contenu de la page HTML pour le placer automatiquement dans les champs du schéma.</p>
-
-<p>Retournez dans l'onglet <code>Schema</code> et cliquez sur l'onglet <code>Parser list</code>. Cette page présente les différents <code>parser</code> disponibles. Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. La page d'édition du parser HTML s'affiche. Cliquez sur l'onglet <code>Field mapping</code>.</p>
-
-<hr><p><strong>/!\  Voir pour la liste par défaut : supprimer les parsers existant pour en recréer un HTML simple ?</strong></p>
-
-<p>.......finaliser explication regexp.......</p>
-
-<ul>
-<li>extraction de la rubrique de la page crawlée à partir du fil d’ariane de nos fausses pages avec une regexp</li>
-<li>extraction du title</li>
-<li>extraction du content</li>
-</ul><hr><h3>
 <a name="d%C3%A9marrage-du-crawl" class="anchor" href="#d%C3%A9marrage-du-crawl"><span class="octicon octicon-link"></span></a>Démarrage du crawl</h3>
 
-<p>Il est maintenant temps de démarrer le crawler configuré plus tôt. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici. Saisissez 7 dans le champ <code>Delay between each successive access, in seconds:</code>, 5 dans le champ <code>Fetch interval between re-fetches:</code> et sélectionnez <code>minutes</code> dans la liste déroulante. </p>
+<p>Il est maintenant temps de démarrer le crawler. Rendez-vous pour cela dans l'onglet <code>Crawler</code> puis <code>Crawl process</code>. Différents paramètres liés au crawl peuvent être réglés ici. Saisissez 7 dans le champ <code>Delay between each successive access, in seconds:</code>, 5 dans le champ <code>Fetch interval between re-fetches:</code> et sélectionnez <code>minutes</code> dans la liste déroulante. </p>
 
 <p>Dans le bloc <code>Current status</code> choisissez <code>Run forever</code> dans la liste puis cliquez sur le bouton <code>Not running - click to run</code> afin de lancer le crawl. Ici encore, le process s'actualise immédiatement dans la zone du dessous.</p>
 
@@ -261,9 +308,7 @@ content:($$)^4 OR content:("$$")^4
 
 <p>Nous utilisons également la notation <code>($$)</code> et <code>("$$")</code> qui permet d'obtenir des documents contenant les mots recherchés soit de manière éclatée soit de manière regroupée.</p>
 
-<hr><p><strong>/!\ Voir en fonction des analyser ce qu'il faut utiliser exactement au niveau de la recherche</strong></p>
-
-<hr><p>Saisissez la requête dans le champ <code>Pattern query</code> puis cliquez sur le bouton <code>Save</code> se trouvant en haut à droite de la page.</p>
+<p>Saisissez la requête dans le champ <code>Pattern query</code> puis cliquez sur le bouton <code>Save</code> se trouvant en haut à droite de la page.</p>
 
 <p>Nous pouvons à présent effectuer des recherches sur les documents qui ont été indexés durant le temps de création de la requête.</p>
 
@@ -393,16 +438,12 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
 
 <p>Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Test - tutoriel en cours de conception maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -413,7 +454,6 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
