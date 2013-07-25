@@ -1,44 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Test - tutoriel en cours de conception by AlexandreToyer</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Test - tutoriel en cours de conception : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Test - tutoriel en cours de conception</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Test - tutoriel en cours de conception</h1>
-        <p></p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Test - tutoriel en cours de conception</h1>
+          <h2 id="project_tagline"></h2>
 
-        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="tutoriel-en-cours-d%C3%A9criture" class="anchor" href="#tutoriel-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutoriel en cours d'écriture</h1>
 
@@ -115,7 +107,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. </li>
 </ul><hr><p><strong>/!\ Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</strong></p>
 
-<hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, section (rubrique de l'actualité) et content.</p>
+<hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, category et content.</p>
 
 <p>Créez le champ url :</p>
 
@@ -154,11 +146,11 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>Analyzer</strong> : laisser vide</li>
 </ul>
 </li>
-<li>section : 
+<li>category : 
 
 <ul>
 <li>
-<strong>Name</strong> : section</li>
+<strong>Name</strong> : category</li>
 <li>
 <strong>Indexed</strong> : yes</li>
 <li>
@@ -229,7 +221,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <p>.......finaliser explication regexp.......</p>
 
 <ul>
-<li>extraction de la rubrique (section) de la page crawlée à partir du fil d’ariane de nos fausses pages avec une regexp</li>
+<li>extraction de la rubrique de la page crawlée à partir du fil d’ariane de nos fausses pages avec une regexp</li>
 <li>extraction du title</li>
 <li>extraction du content</li>
 </ul><hr><h3>
@@ -259,7 +251,7 @@ De plus nous pouvons considérer que des documents qui contiendront les mots rec
 <p>Nous pouvons donc utiliser cette requête :</p>
 
 <pre><code>title:($$)^10 OR title:("$$") OR^10
-section:($$)^7 OR section:("$$") OR^7
+category:($$)^7 OR category:("$$")^7 OR
 content:($$)^4 OR content:("$$")^4
 </code></pre>
 
@@ -320,7 +312,7 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 
 <p>Cliquez sur l'onglet <code>Query</code> puis sur le bouton <code>Edit</code> de la requête <code>search_articles</code>.</p>
 
-<p>Cliquez ensuite sur l'onglet <code>Faceted fields</code>, choisissez <code>section</code> dans la liste puis cliquez sur le bouton <code>add facet</code>. Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
+<p>Cliquez ensuite sur l'onglet <code>Faceted fields</code>, choisissez <code>category</code> dans la liste puis cliquez sur le bouton <code>add facet</code>. Cliquez ensuite sur le bouton <code>Save</code> en haut à droite.</p>
 
 <p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et effectuez une recherche : la facette est automatiquement ajoutée !</p>
 
@@ -401,12 +393,16 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
 
 <p>Vous y trouverez également toute la documentation sur l'ensemble des API fournies par OpenSearchServer. L'utilisation de ces API, couplée avec <a href="https://github.com/jaeksoft">nos librairies clientes</a>, vous permettra d'intégrer très facilement et finement le moteur de recherche à votre application.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Test - tutoriel en cours de conception maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -417,6 +413,7 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
