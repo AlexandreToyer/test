@@ -1,44 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Test - tutoriel en cours de conception by AlexandreToyer</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Test - tutoriel en cours de conception : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Test - tutoriel en cours de conception</title>
   </head>
+
   <body>
 
-      <header>
-        <h1>Test - tutoriel en cours de conception</h1>
-        <p></p>
-      </header>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
 
-      <div id="banner">
-        <span id="logo"></span>
+          <h1 id="project_title">Test - tutoriel en cours de conception</h1>
+          <h2 id="project_tagline"></h2>
 
-        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="tutoriel-en-cours-d%C3%A9criture" class="anchor" href="#tutoriel-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutoriel en cours d'écriture</h1>
 
@@ -192,6 +184,8 @@ Un champ de schéma possède 5 propriétés :</p>
 </li>
 </ul><p>Nos 4 champs sont maintenant créés et visibles dans la liste des champs.</p>
 
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_schema_fields.PNG" alt="Configuration du schéma"></p>
+
 <p>Nous devons configurer un champ par défaut et un champ unique. Pour cela sélectionnez <code>content</code> dans la première liste et <code>url</code> dans la seconde.</p>
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_schema_default.PNG" alt="Configuration du schéma"></p>
@@ -249,6 +243,8 @@ Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. L
 </ul>
 </li>
 </ul><p>Cliquez maintenant sur le bouton <code>Save</code> en bas de page.</p>
+
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_parser_mapping.PNG" alt="Configuration du parser HTML"></p>
 
 <p>Voilà, le parser HTML est configuré ! Dorénavant chaque page crawlée sera traitée par ce parser avant d'être indexée. </p>
 
@@ -377,6 +373,8 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 
 <p>Ré-affichez la page du renderer (clic sur <code>View</code> dans l'onglet <code>renderer</code>) et effectuez une recherche : la facette est automatiquement ajoutée !</p>
 
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_facets.PNG" alt="Facettes"></p>
+
 <blockquote>
 <p>Comme vous avez dû vous en apercevoir depuis le début du tutoriel OpenSearchServer prend en compte <em>à chaud</em> tous les changements de configuration ! Aucun redémarrage de service n'est nécessaire.</p>
 </blockquote>
@@ -402,6 +400,8 @@ Répétez l'opération pour la snippet content, sans configurer d'url.</p>
 
 <p>Cliquez sur le bouton <code>save</code> en bas de page et ré-afficher le renderer puis effectuez une recherche. Le ou les mots recherchés sont à présent affichés en gras dans la page de résultat.</p>
 
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_snippet.PNG" alt="Facettes"></p>
+
 <h2>
 <a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
 
@@ -425,9 +425,13 @@ Pour l'exemple nous allons faire en sorte que l'auto-complétion fonctionne sur 
 
 <p>Cliquez sur l'onglet <code>Parser list</code> puis éditez le parser <code>HTML parser</code>.  Ajoutez une correspondance entre la valeur <code>title</code> (première liste) et le champ <code>autocomplete</code> (seconde liste). Cliquez sur <code>Add</code> puis sur <code>Save</code>.</p>
 
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_parser_autocomplete.PNG" alt="Configuration de l'auto-complétion"></p>
+
 <p>Il faut maintenant attendre 1 à 2 minutes pour que le crawler passe à nouveau sur les pages pour ajouter des données dans le nouveau champ auto-complete. Assurez-vous pour cela que le crawler soit encore en train de tourner, autrement relancez-le (onglet <code>Crawler</code> / <code>Web crawler</code> / <code>Crawl process</code>).</p>
 
 <p>Passez ensuite sur l'onglet <code>Schema</code> / <code>Auto-completion</code>. Dans la liste <code>Field source</code> choisissez le champ autocomplete puis cliquez sur le bouton <code>Build</code>. La valeur indiquée en face de <code>Number of terms</code> doit passer de 0 à un nombre plus important. Cliquez sur <code>save</code>.</p>
+
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_autocomplete_config.PNG" alt="Configuration de l'auto-complétion"></p>
 
 <blockquote>
 <p>Le processus de reconstruction de l'index d'auto-complétion peut facilement être exécuté de manière régulière via la création d'un <code>job</code> dans le puissant gestionnaire de tâche d'OpenSearchServer (onglet <code>Scheduler</code>).</p>
@@ -464,12 +468,16 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
 
 <p>N'hésitez pas à créer un nouvel index en utilisant cette fois le template <code>Web crawler</code> pour découvrir des options d'indexation et de recherche encore plus puissantes !</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Test - tutoriel en cours de conception maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -480,6 +488,7 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
