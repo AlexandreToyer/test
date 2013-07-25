@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Test - tutorial en cours de conception by AlexandreToyer</title>
+    <title>Test - tutoriel en cours de conception by AlexandreToyer</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
   <body>
 
       <header>
-        <h1>Test - tutorial en cours de conception</h1>
+        <h1>Test - tutoriel en cours de conception</h1>
         <p></p>
       </header>
 
@@ -40,22 +40,31 @@
       </nav>
       <section>
         <h1>
-<a name="tutorial-en-cours-d%C3%A9criture" class="anchor" href="#tutorial-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutorial en cours d'écriture</h1>
+<a name="tutoriel-en-cours-d%C3%A9criture" class="anchor" href="#tutoriel-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutoriel en cours d'écriture</h1>
 
-<p>Ce tutorial est actuellement en cours de rédaction et n'est pas encore finalisé.</p>
+<p>Ce tutoriel est actuellement en cours de rédaction et n'est pas encore finalisé.</p>
 
 <h1>
 <a name="crawler-un-site-internet-et-obtenir-un-moteur-de-recherche" class="anchor" href="#crawler-un-site-internet-et-obtenir-un-moteur-de-recherche"><span class="octicon octicon-link"></span></a>Crawler un site internet et obtenir un moteur de recherche</h1>
 
-<p>Ce tutorial rapide à réaliser vous permettra de prendre en main certaines fonctionnalités d'OpenSearchServer. </p>
+<p>Ce tutoriel rapide à réaliser vous permet de prendre en main les principales fonctionnalités d'OpenSearchServer.</p>
 
-<p>Vous apprendez à <strong>crawler un site pour construire l'index de recherche</strong>, mettre en place <strong>une page de recherche</strong> paginée, <strong>configurer des facettes</strong>, paramétrer la mise en avant d'extraits de résultats et <strong>activer l'auto-complétion</strong> !</p>
+<p>Vous apprenez à :</p>
 
-<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_resultat.PNG" alt="Résultat final"></p>
+<ul>
+<li>
+<strong>crawler un site web</strong>,</li>
+<li>
+<strong>construire l'index de recherche</strong>, </li>
+<li>mettre en place <strong>une page de recherche</strong> paginée, </li>
+<li>
+<strong>configurer des facettes</strong>, </li>
+<li>paramétrer la mise en avant d'extraits de résultats, </li>
+<li>
+<strong>activer l'auto-complétion</strong>.</li>
+</ul><p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_resultat.PNG" alt="Résultat final"></p>
 
-<p>Pour commencer ce tutorial il vous suffit simplement d'<a href="http://www.open-search-server.com/fr/tester-opensearchserver">Installer OpenSearchServer</a>.</p>
-
-<p>Nous imaginerons ici que votre site Internet est un site d'actualités. Nous avons créé pour cela 4 pages fictives :</p>
+<p>Pour illustrer notre tutoriel, nous avons pris l’exemple d’un site d'actualités. Nous avons créé pour cela 4 pages fictives :</p>
 
 <ul>
 <li>
@@ -67,7 +76,9 @@
 <li><a href="http://www.open-search-server.com/fr/site-de-test-crawler-la-ceremonie-des-oscars/">http://www.open-search-server.com/fr/site-de-test-crawler-la-ceremonie-des-oscars/</a></li>
 </ul>
 </li>
-</ul><h2>
+</ul><p>Pour commencer il vous suffit d'<a href="http://www.open-search-server.com/fr/tester-opensearchserver">Installer OpenSearchServer en 3 minutes</a>.</p>
+
+<h2>
 <a name="mise-en-place-du-crawl-et-indexation-des-contenus" class="anchor" href="#mise-en-place-du-crawl-et-indexation-des-contenus"><span class="octicon octicon-link"></span></a>Mise en place du crawl et indexation des contenus</h2>
 
 <h3>
@@ -102,7 +113,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <strong>TermVector</strong> : indique si des <code>snippets</code> pourront être configurés sur ce champ. Les snippet sont des extraits de texte contenant les mots recherchés.</li>
 <li>
 <strong>Analyzer</strong> : les <code>analyzers</code> sont des ensembles de filtre et de traitements automatiques qui peuvent être effectués sur les valeurs indexées. </li>
-</ul><hr><p><strong>/!\ Voir pour l'utilisation exacte des analyzer : lesquels configurer sur quels champs...</strong></p>
+</ul><hr><p><strong>/!\ Voir pour l'utilisation exacte des analyzer : lesquels configurés sur quels champs...</strong></p>
 
 <hr><p>Nous allons créer 4 champs pour indexer nos actualités : url, title, section (rubrique de l'actualité) et content.</p>
 
