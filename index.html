@@ -95,6 +95,14 @@
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_creation.PNG" alt="Création de l'index"></p>
 
+<blockquote>
+<p>OpenSearchServer propose également 2 templates pré-configurés d'index : l'un pour du crawl de site web, l'autre pour du crawl de file system. </p>
+
+<p>Le template <code>Web crawler</code> permet de mettre en place extrêmement rapidement un système de crawl et de recherche sur son site internet en minimisant très fortement la configuration nécessaire. Cet index propose en effet un schéma très complet utilisant différents parsers et analyzer, une <code>query</code> performante et un <code>renderer</code> prêt à l'emploi.</p>
+
+<p>Nous n'emploierons cependant pas ce template pour ce tutoriel car notre but ici est justement de vous faire prendre en main les options de configuration les plus classiques qui vous permettront ensuite d'adapter le moteur à vos besoins spécifique.</p>
+</blockquote>
+
 <p>L'index est créé immédiatement. Le contexte global de l'interface change et de nouveaux onglets apparaissent en haut de page.</p>
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_tabs.PNG" alt="Onglets de la navigation principale"></p>
@@ -184,7 +192,7 @@ Un champ de schéma possède 5 propriétés :</p>
 </li>
 </ul><p>Nos 4 champs sont maintenant créés et visibles dans la liste des champs.</p>
 
-<p>Nous devons configuré un champ par défaut et un champ unique. Pour cela sélectionnez <code>content</code> dans la première liste et <code>url</code> dans la seconde.</p>
+<p>Nous devons configurer un champ par défaut et un champ unique. Pour cela sélectionnez <code>content</code> dans la première liste et <code>url</code> dans la seconde.</p>
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_schema_default.PNG" alt="Configuration du schéma"></p>
 
@@ -297,7 +305,7 @@ De plus nous pouvons considérer que des documents qui contiendront les mots rec
 
 <p>Nous pouvons donc utiliser cette requête :</p>
 
-<pre><code>title:($$)^10 OR title:("$$") OR^10
+<pre><code>title:($$)^10 OR title:("$$")^10 OR
 category:($$)^7 OR category:("$$")^7 OR
 content:($$)^4 OR content:("$$")^4
 </code></pre>
