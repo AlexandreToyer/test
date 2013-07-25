@@ -1,36 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Test - tutoriel en cours de conception : " />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Test - tutoriel en cours de conception by AlexandreToyer</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Test - tutoriel en cours de conception</title>
   </head>
-
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/AlexandreToyer/test">View on GitHub</a>
+      <header>
+        <h1>Test - tutoriel en cours de conception</h1>
+        <p></p>
+      </header>
 
-          <h1 id="project_title">Test - tutoriel en cours de conception</h1>
-          <h2 id="project_tagline"></h2>
+      <div id="banner">
+        <span id="logo"></span>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/AlexandreToyer/test/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/AlexandreToyer/test/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <a href="https://github.com/AlexandreToyer/test" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/AlexandreToyer/test/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/AlexandreToyer/test/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
         <h1>
 <a name="tutoriel-en-cours-d%C3%A9criture" class="anchor" href="#tutoriel-en-cours-d%C3%A9criture"><span class="octicon octicon-link"></span></a>Tutoriel en cours d'écriture</h1>
 
@@ -88,7 +96,7 @@
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_creation.PNG" alt="Création de l'index"></p>
 
 <blockquote>
-<p>OpenSearchServer propose également 2 templates pré-configurés d'index : l'un pour du crawl de site web, l'autre pour du crawl de file system. </p>
+<p>OpenSearchServer propose également 2 templates d'index pré-configurés : l'un pour du crawl de site web, l'autre pour du crawl de file system. </p>
 
 <p>Le template <code>Web crawler</code> permet de mettre en place extrêmement rapidement un système de crawl et de recherche sur son site internet en minimisant très fortement la configuration nécessaire. Cet index propose en effet un schéma très complet utilisant différents parsers et analyzer, une <code>query</code> performante et un <code>renderer</code> prêt à l'emploi.</p>
 
@@ -468,16 +476,12 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
 
 <p>N'hésitez pas à créer un nouvel index en utilisant cette fois le template <code>Web crawler</code> pour découvrir des options d'indexation et de recherche encore plus puissantes !</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Test - tutoriel en cours de conception maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/AlexandreToyer">AlexandreToyer</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -488,7 +492,6 @@ Les valeurs proposées sont cependant illisibles car elles ne sont pas encore mi
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
