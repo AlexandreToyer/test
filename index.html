@@ -79,6 +79,32 @@
 </ul><p>Pour commencer il vous suffit d'<a href="http://www.open-search-server.com/fr/tester-opensearchserver">Installer OpenSearchServer en 3 minutes</a>.</p>
 
 <h2>
+<a name="quelques-d%C3%A9finitions" class="anchor" href="#quelques-d%C3%A9finitions"><span class="octicon octicon-link"></span></a>Quelques définitions</h2>
+
+<p>Avant de démarrer ce tutoriel il est important de connaitre quelques notions liées aux moteurs de recherche. </p>
+
+<p>Les constituants essentiels d'un moteur de recherche sont l'index, où sont enregistrés les documents, les requêtes, qui permettent de rechercher des documents, et les crawlers, qui parcourent les sites web pour indexer des documents.</p>
+
+<ul>
+<li>
+<strong>Index</strong> : l'index est l'endroit où les documents sont enregistrés, découpés et classés selon différents algorithmes afin de permettre ensuite leur recherche rapide.</li>
+<li>
+<strong>Schema</strong> : le schéma détermine la structure d'un index. C'est lui qui indique quels sont les champs des documents indexés.</li>
+<li>
+<strong>Crawler</strong> : le crawler explore les sites web demandés pour indexer leurs pages. Il est capable de suivre seul les liens présents dans les pages tout en se cantonnant à un domaine précis. Il permet d'enregistrer différents types de documents : les pages web, les images, les fichiers liés, etc.</li>
+<li>
+<strong>Query</strong> : les query représentent les requêtes de recherche personnalisées. Dans une requête il est possible de configurer les champs du schéma dans lesquels rechercher, la pertinence de chaque champ, la présence de facettes et de snippets, etc.</li>
+<li>
+<strong>Facette</strong> : les facettes sont des compteurs de documents basés sur des valeurs partagées par tous.</li>
+<li>
+<strong>Snippet</strong> : les snippets sont des extraits de document permettant de mettre en avant les mots recherchés.</li>
+<li>
+<strong>Renderer</strong> : dans OpenSearchServer les renderers sont des pages de recherche simple à mettre en place et pouvant être proposées aux internautes</li>
+<li>
+<strong>Scheduler</strong> : le scheduler d'OpenSearchServer est un gestionnaire de tâches offrant la possibilité de programmer l'exécution de différents jobs</li>
+</ul><p>Maintenant que tout est clair, débutons !</p>
+
+<h2>
 <a name="mettre-en-place-le-crawl-et-indexer-les-contenus" class="anchor" href="#mettre-en-place-le-crawl-et-indexer-les-contenus"><span class="octicon octicon-link"></span></a>Mettre en place le crawl et indexer les contenus</h2>
 
 <h3>
