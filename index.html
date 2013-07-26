@@ -79,7 +79,7 @@
 </ul><p>Pour commencer il vous suffit d'<a href="http://www.open-search-server.com/fr/tester-opensearchserver">Installer OpenSearchServer en 3 minutes</a>.</p>
 
 <h2>
-<a name="mise-en-place-du-crawl-et-indexation-des-contenus" class="anchor" href="#mise-en-place-du-crawl-et-indexation-des-contenus"><span class="octicon octicon-link"></span></a>Mise en place du crawl et indexation des contenus</h2>
+<a name="mettre-en-place-le-crawl-et-indexer-les-contenus" class="anchor" href="#mettre-en-place-le-crawl-et-indexer-les-contenus"><span class="octicon octicon-link"></span></a>Mettre en place le crawl et indexer les contenus</h2>
 
 <h3>
 <a name="cr%C3%A9ation-et-configuration-initiale-de-lindex" class="anchor" href="#cr%C3%A9ation-et-configuration-initiale-de-lindex"><span class="octicon octicon-link"></span></a>Création et configuration initiale de l'index</h3>
@@ -371,7 +371,7 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 </blockquote>
 
 <h2>
-<a name="ajout-dune-facette" class="anchor" href="#ajout-dune-facette"><span class="octicon octicon-link"></span></a>Ajout d’une facette</h2>
+<a name="ajouter-une-facette" class="anchor" href="#ajouter-une-facette"><span class="octicon octicon-link"></span></a>Ajouter une facette</h2>
 
 <p>Nous avons configuré le crawler et le schéma pour qu'à chaque article indexé soit associé une rubrique. Nous allons maintenant voir comment exposer cette rubrique en tant que facette. </p>
 
@@ -390,7 +390,7 @@ Saisissez par exemple les règles CSS suivantes pour modifier l'affichage de la 
 </blockquote>
 
 <h2>
-<a name="ajout-de-snippets" class="anchor" href="#ajout-de-snippets"><span class="octicon octicon-link"></span></a>Ajout de snippets</h2>
+<a name="ajouter-des-snippets" class="anchor" href="#ajouter-des-snippets"><span class="octicon octicon-link"></span></a>Ajouter des snippets</h2>
 
 <p>Les snippets sont des extraits de résultats contenant le ou les mots recherchés. Nous allons configurer une snippet sur le titre du document et une autre sur le champ content.</p>
 
@@ -413,7 +413,7 @@ Répétez l'opération pour la snippet content, sans configurer d'url.</p>
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_snippet.PNG" alt="Facettes"></p>
 
 <h2>
-<a name="ajout-de-lautocompl%C3%A9tion" class="anchor" href="#ajout-de-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajout de l’autocomplétion</h2>
+<a name="ajouter-lautocompl%C3%A9tion" class="anchor" href="#ajouter-lautocompl%C3%A9tion"><span class="octicon octicon-link"></span></a>Ajouter l’autocomplétion</h2>
 
 <p>OpenSearchServer gère très simplement l'ajout de l'auto-complétion. Pour ajouter cette fonctionnalité nous devons configurer un nouveau champ dans le schéma et compléter le parser HTML pour envoyer des données dans ce champ. OpenSearchServer s'occupe ensuite seul de construire l'index d'auto-complétion et de renvoyer les résultats au fur et à mesure de la frappe.
 Pour l'exemple nous allons faire en sorte que l'auto-complétion fonctionne sur les titres de pages.</p>
