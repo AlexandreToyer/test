@@ -206,7 +206,7 @@ Un champ de schéma possède 5 propriétés :</p>
 <p>Toujours au sein de l'onglet <code>Schema</code> cliquez sur l'onglet <code>Parser list</code>. Cette page présente les différents <code>parser</code> disponibles. Beaucoup de parser sont créés par défaut. Cliquez sur le bouton <code>Delete</code> pour tous les parsers excepté pour le <code>HTML parser</code>.
 Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. La page d'édition du parser HTML s'affiche. Cliquez sur l'onglet <code>Field mapping</code>. Ici encore plusieurs correspondances sont pré-configurées. Dans le cadre du tutorial nous allons toutes les supprimer pour en recréer 3. Cliquez sur la petite croix rouge présente en fin de chaque ligne.</p>
 
-<p>Nous allons faire en sorte que le moteur repère dans le HTML source de chaque page le titre, la rubrique et le contenu qui nous intéresse afin d'indexer ces informations proprement. Pour cela nous devons lui indiquer à partir de quel champ source travailler, dans quel champ de l'index écrire les données et via quelle expression régulière extraire ces données.</p>
+<p>Nous allons faire en sorte que le moteur repère dans le HTML source de chaque page le titre, la rubrique et le contenu qui nous intéresse afin d'indexer ces informations proprement. Pour cela nous devons lui indiquer à partir de quel champ source travailler, dans quel champ de l'index écrire les données et via quelle expression régulière extraire ces données. Au sein de l'expression régulière c'est le groupe de capture, déterminé par des parenthèses, qui donnera sa valeur au champ.</p>
 
 <p>Configurez 3 <code>mapping</code>:</p>
 
@@ -281,7 +281,7 @@ Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. L
 
 <p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_crawler_urlmapping.PNG" alt="Mapping du champ url"></p>
 
-<p>Voilà, nous avons configuré le crawler en 2 étapes ! Nous devons maintenant terminer la configuration du schéma avant de lancer le crawl.</p>
+<p>Voilà, nous avons configuré le crawler en 2 étapes !</p>
 
 <h3>
 <a name="d%C3%A9marrage-du-crawl" class="anchor" href="#d%C3%A9marrage-du-crawl"><span class="octicon octicon-link"></span></a>Démarrage du crawl</h3>
