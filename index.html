@@ -239,6 +239,8 @@ Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. L
 
 <p>Nous allons faire en sorte que le moteur repère dans le HTML source de chaque page le titre, la rubrique et le contenu qui nous intéresse afin d'indexer ces informations proprement. Pour cela nous devons lui indiquer à partir de quel champ source travailler, dans quel champ de l'index écrire les données et via quelle expression régulière extraire ces données. Au sein de l'expression régulière c'est le groupe de capture, déterminé par des parenthèses, qui donnera sa valeur au champ.</p>
 
+<p>Nous n'entrerons pas ici dans le détail de l'écriture des expressions régulières mais vous pourrez trouvez beaucoup d'informations sur le web, notamment sur ce site : <a href="http://www.regular-expressions.info/">http://www.regular-expressions.info/</a></p>
+
 <p>Configurez 3 <code>mapping</code>:</p>
 
 <ul>
@@ -249,8 +251,7 @@ Cliquez sur le bouton <code>Edit</code> sur la ligne <code>HTML parser</code>. L
 </li>
 <li>seconde liste : sélectionnez <code>title</code>
 </li>
-<li>champ <code>captured by (reg.exp.)</code> : saisissez cette expression régulière : <code>&lt;h1 class="post-title"&gt;(.*?)</code>
-</li>
+<li>champ <code>captured by (reg.exp.)</code> : saisissez cette expression régulière : <code>&lt;h1 class="post-title"&gt;(.*?)&lt;/h1&gt;</code>. Cela nous permet de capturer la valeur se trouvant au sein de la balise h1</li>
 <li>cliquez sur le bouton <code>Add</code>
 </li>
 </ul>
