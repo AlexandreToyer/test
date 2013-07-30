@@ -47,9 +47,9 @@
 <h1>
 <a name="crawler-un-site-internet-et-obtenir-un-moteur-de-recherche" class="anchor" href="#crawler-un-site-internet-et-obtenir-un-moteur-de-recherche"><span class="octicon octicon-link"></span></a>Crawler un site internet et obtenir un moteur de recherche</h1>
 
-<p>Ce tutoriel rapide à réaliser vous permet de prendre en main les principales fonctionnalités d'<a href="http://www.open-search-server.com/fr">OpenSearchServer</a>.</p>
+<p>Ce tutoriel simple permet de prendre rapidement en main les principales fonctionnalités d'<a href="http://www.open-search-server.com/fr">OpenSearchServer</a>.</p>
 
-<p>Vous apprenez à :</p>
+<p>Vous apprendrez à :</p>
 
 <ul>
 <li>
@@ -62,7 +62,7 @@
 <li>paramétrer la mise en avant d'extraits de résultats, </li>
 <li>
 <strong>activer l'auto-complétion</strong>.</li>
-</ul><p>Voici la page de recherche finale que nous obtiendrons (il s'agit d'un <code>renderer</code> pour OpenSearchServer) :
+</ul><p>Voici la page de recherche finale que nous obtiendrons :
 <img src="http://alexandre-toyer.fr/nonSitePerso/oss/tuto_resultat2.PNG" alt="Résultat final"></p>
 
 <p>Pour illustrer notre tutoriel, nous avons pris l’exemple d’un site d'actualités. Nous avons créé pour cela 4 pages fictives :</p>
@@ -82,17 +82,15 @@
 <h2>
 <a name="quelques-d%C3%A9finitions" class="anchor" href="#quelques-d%C3%A9finitions"><span class="octicon octicon-link"></span></a>Quelques définitions</h2>
 
-<p>Avant de démarrer ce tutoriel il est important de connaitre quelques notions liées aux moteurs de recherche. </p>
-
-<p>Les constituants essentiels d'un moteur de recherche sont l'index, où sont enregistrés les documents, les requêtes, qui permettent de rechercher des documents, et les crawlers, qui parcourent les sites web pour indexer des documents.</p>
+<p>Avant de démarrer ce tutoriel il est important de connaitre les principaux constituants d'un moteur de recherche :</p>
 
 <ul>
 <li>
-<strong>Index</strong> : l'index est l'endroit où les documents sont enregistrés, découpés et classés selon différents algorithmes afin de permettre ensuite leur recherche rapide.</li>
+<strong>Index de recherche</strong> : l'index est l'endroit où les documents sont enregistrés, découpés et classés selon différents algorithmes afin de permettre ensuite leur recherche rapide.</li>
+<li>
+<strong>Crawler</strong> : le crawler web explore les sites web demandés pour indexer leurs pages. Il est capable de suivre seul les liens présents dans les pages tout en se cantonnant à un domaine précis. Il permet d'enregistrer différents types de documents : les pages web, les images, les fichiers liés, etc. Il existe aussi des crawlers de système de fichier et des crawler de base de données.</li>
 <li>
 <strong>Schema</strong> : le schéma détermine la structure d'un index. C'est lui qui indique quels sont les champs des documents indexés.</li>
-<li>
-<strong>Crawler</strong> : le crawler explore les sites web demandés pour indexer leurs pages. Il est capable de suivre seul les liens présents dans les pages tout en se cantonnant à un domaine précis. Il permet d'enregistrer différents types de documents : les pages web, les images, les fichiers liés, etc.</li>
 <li>
 <strong>Query</strong> : les query représentent les requêtes de recherche personnalisées. Dans une requête il est possible de configurer les champs du schéma dans lesquels rechercher, la pertinence de chaque champ, la présence de facettes et de snippets, etc.</li>
 <li>
@@ -102,10 +100,14 @@
 <li>
 <strong>Renderer</strong> : dans OpenSearchServer les renderers sont des pages de recherche simple à mettre en place et pouvant être proposées aux internautes</li>
 <li>
-<strong>Scheduler</strong> : le scheduler d'OpenSearchServer est un gestionnaire de tâches offrant la possibilité de programmer l'exécution de différents jobs</li>
-</ul><p>Le schéma suivant présente les principales briques d'OpenSearchServer :</p>
+<strong>Parser</strong> : les parsers servent à extraire des informations structurées à partir des documents indexés (titre, auteur, description, ...)</li>
+<li>
+<strong>Analyzer</strong> : les analyzers sont des composants personnalisables permettant d'appliquer certains traitements sur les textes indexés ou recherchés (découpage en token, retrait des accents, conversion d'unités, ...)</li>
+<li>
+<strong>Scheduler</strong> : le scheduler d'OpenSearchServer est un gestionnaire de tâches offrant la possibilité de programmer l'exécution de différents jobs </li>
+</ul><p>Le schéma suivant présente les principales briques d'OpenSearchServer de manière simplifiée :</p>
 
-<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/schema.PNG" alt="Résultat final"></p>
+<p><img src="http://alexandre-toyer.fr/nonSitePerso/oss/schema3.PNG" alt="Résultat final"></p>
 
 <p>Maintenant que tout est clair, débutons !</p>
 
